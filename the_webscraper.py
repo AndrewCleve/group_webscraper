@@ -1,6 +1,6 @@
 import twilio
 from twilio.rest import Client
-
+import twilioauth as twauth
 
 def output(change_message, user_config):
     twilio_sid = user_config["twilio_sid"]
@@ -13,3 +13,26 @@ def output(change_message, user_config):
         body=change_message, from_=twilio_phone, to=user_phone
     )
     print(message.sid)
+
+
+def main():
+    tempsid = input("Enter your session ID : ")
+    if tempsid != '':
+        twauth.twiliodict['sid'] = tempsid
+    
+    tempauth = input("Enter your Twilio Auth : ")
+    if tempauth != '':
+        twauth.twiliodict['auth'] = tempauth
+    
+    temptwilphone = input("Enter your Twilio phone # : ")
+    if temptwilphone != '':
+        twauth.twiliodict['twilphone'] = temptwilphone
+    
+    tempuserphone = input("Enter your phone # to send to : ")
+    if tempuserphone != '':
+        twauth.twiliodict['userphone'] = tempuserphone
+    for key in twauth.twiliodict:
+        print(key, ",", twauth.twiliodict[key])
+    
+if __name__ == "__main__":
+    main()

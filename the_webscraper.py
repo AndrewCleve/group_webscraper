@@ -59,13 +59,14 @@ class GUI():
         
         #stationdictionary.update({elevation : name})
         
-        userDictionary = {
+        global.userDictionary = {
         "websiteName" : self.entWebsite.get(),
         "checkRate" : self.entCheckRate.get(),
         "SID" : self.entSID.get(),
         "twilioAuth" : self.entAuth.get(),
         "twilioPhone" : self.entTwilPhone.get(),
         "phoneNumber" : self.entUserPhone.get()}
+        
         print (userDictionary)
     #big credit to Andrew for like.. figuring it out, thanks Java
         window.destroy()

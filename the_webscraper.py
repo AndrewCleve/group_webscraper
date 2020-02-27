@@ -71,10 +71,10 @@ class GUI:
 
 
 def output(change_message):
-    twilio_sid = twauth.twiliodict["twilio_sid"]
-    twilio_auth = twauth.twiliodict["twilio_auth"]
-    twilio_phone = twauth.twiliodict["twilio_phone"]
-    user_phone = twauth.twiliodict["user_phone"]
+    twilio_sid = twauth.twiliodict["sid"]
+    twilio_auth = twauth.twiliodict["auth"]
+    twilio_phone = twauth.twiliodict["twilphone"]
+    user_phone = twauth.twiliodict["userphone"]
     # print(twilio_sid, twilio_auth, twilio_phone, user_phone, message)
     client = Client(twilio_sid, twilio_auth)
     message = client.messages.create(

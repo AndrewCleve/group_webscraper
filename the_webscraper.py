@@ -1,10 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+import time
 import twilio
 from twilio.rest import Client
 import twilioauth as twauth
 import tkinter as tk
 
 window = tk.Tk()
-
 
 class GUI:
     def RunGUI(self):
@@ -73,7 +75,34 @@ class GUI:
         # big credit to Andrew for like.. figuring it out, thanks Java
         window.destroy()
 
-
+        
+numberOfCredits = ""
+def magic_happens():
+    #url = "https://www.imdb.com/name/nm3485845/?ref_=fn_al_nm_1" #website
+    url = userDictionary["websiteName"]
+    response = requests.get(url) #get html from site
+    soup = BeautifulSoup(response.content,"html.parser") #add html to BeautifulSoup
+    div = soup.find(id = "filmo-head-actor" ) #search soup for tag h1\
+    
+    unwanted = div.find('span') #remove stuff
+    unwanted.extract()
+    unwanted = div.find('span')
+    unwanted.extract()
+    unwanted = div.find('a')
+    unwanted.extract()
+    str = div.text
+    newStr = str.replace("(", " ")
+    newestStr = newStr.replace(")", " ")
+    
+    if numberOfCredits == "":
+        numberOfCredits = newestStr
+    elif numberOfCredits != newestStr:
+        output("Adam Driver now has" + newestStr)
+    numberOfCredits = newestStr
+    
+    print(newestStr) #print text
+    
+        
 def output(change_message):
     twilio_sid = twauth.twiliodict["sid"]
     twilio_auth = twauth.twiliodict["auth"]
@@ -90,3 +119,6 @@ def output(change_message):
 if __name__ == "__main__":
     firstGUI = GUI()
     firstGUI.RunGUI()
+    while not False:
+        magic_happens()
+        time.sleep(int(userDictionary["checkRate"]))

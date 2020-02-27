@@ -52,7 +52,8 @@ class GUI():
         
         #stationdictionary.update({elevation : name})
         
-        global.userDictionary = {
+        global userDictionary
+        userDictionary = {
         "websiteName" : self.entWebsite.get(),
         "checkRate" : self.entCheckRate.get(),
         "SID" : self.entSID.get(),

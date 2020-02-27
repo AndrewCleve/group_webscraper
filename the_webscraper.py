@@ -53,11 +53,15 @@ class GUI:
     def end(self):
 
         # stationdictionary.update({elevation : name})
-
+        
+        tempCheckRate = self.entCheckRate.get()
+        for i in range len(tempCheckRate):
+            tempCheckRate.remove(",")
+            
         global userDictionary
         userDictionary = {
             "websiteName": self.entWebsite.get(),
-            "checkRate": self.entCheckRate.get(),
+            "checkRate": tempCheckRate,
             "SID": self.entSID.get(),
             "twilioAuth": self.entAuth.get(),
             "twilioPhone": self.entTwilPhone.get(),

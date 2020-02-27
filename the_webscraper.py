@@ -1,11 +1,9 @@
 import twilioauth as twauth
 import tkinter as tk
 
-
 window = tk.Tk()
 class GUI():
     def RunGUI(self):
-    
     
         l1 = tk.Label(window, text = "Enter website name here ")
         l2 = tk.Label(window, text = "Enter checkrate here (in seconds) ")
@@ -13,8 +11,6 @@ class GUI():
         l4 = tk.Label(window, text = "Enter Twilio Authorization here ")
         l5 = tk.Label(window, text = "Enter Twilio phone number here ")
         l6 = tk.Label(window, text = "Enter user phone number here ")
-
-        
 
         self.entWebsite = tk.Entry(window, text = "Hello World")
         self.entCheckRate = tk.Entry(window )
@@ -25,17 +21,12 @@ class GUI():
         
         self.entWebsite.insert(0,"https://www.imdb.com/name/nm3485845/")
         self.entCheckRate.insert(0,"86400")
+        self.entSID.insert(0, twauth.twiliodict['sid'])
+        self.entAuth.insert(0, twauth.twiliodict['auth'])
+        self.entTwilPhone.insert(0, twauth.twiliodict['twilphone'])
+        self.entUserPhone.insert(0, twauth.twiliodict['userphone'])
        
-       
-        
-       
-       
-       
-       
-       
-
         button = tk.Button(window, text ="Finish", width = 25, command = self.end )
-
 
         l1.grid(row = 0, column = 0, pady =2)
         l2.grid(row = 1, column = 0, pady =2)
@@ -53,10 +44,9 @@ class GUI():
 
         button.grid(row=6, column =1 )
 
-
         window.mainloop()
-    def end(self):
         
+    def end(self):
         
         #stationdictionary.update({elevation : name})
         
@@ -69,7 +59,8 @@ class GUI():
         "phoneNumber" : self.entUserPhone.get()}
         
         print (userDictionary)
-    #big credit to Andrew for like.. figuring it out, thanks Java
+        
+        #big credit to Andrew for like.. figuring it out, thanks Java
         window.destroy()
 
 if __name__ == "__main__":

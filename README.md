@@ -13,15 +13,15 @@ IB CS group webscraper
 twiliodict = {'sid': 'My SID Here', 'auth': 'My Auth Here', 'twilphone': 'The Twilio Phone #', 'userphone': 'My Phone # here'}
 ```
 
-##My Contributions
+## My Contributions
 I mainly worked on the input section of the webscraper. This involved dealing with the entry fields of the GUI created by Jason. This meant that I wrote these lines to automatically put in default values for what and how often to scrape.
 ```python
-        self.entWebsite.insert(0, "https://www.imdb.com/name/nm3485845/")
-        self.entCheckRate.insert(0, "86400")
-        self.entSID.insert(0, twauth.twiliodict["sid"])
-        self.entAuth.insert(0, twauth.twiliodict["auth"])
-        self.entTwilPhone.insert(0, twauth.twiliodict["twilphone"])
-        self.entUserPhone.insert(0, twauth.twiliodict["userphone"])
+self.entWebsite.insert(0, "https://www.imdb.com/name/nm3485845/")
+self.entCheckRate.insert(0, "86400")
+self.entSID.insert(0, twauth.twiliodict["sid"])
+self.entAuth.insert(0, twauth.twiliodict["auth"])
+self.entTwilPhone.insert(0, twauth.twiliodict["twilphone"])
+self.entUserPhone.insert(0, twauth.twiliodict["userphone"])
 ```
 The code above pulls from twauth.twiliodict, an array within the file twilioauth.py. The file is in the gitignore so that your personal twilio information doesn't get uploaded to github, and is imported in the imports section:
 ```python
